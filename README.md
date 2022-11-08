@@ -3,7 +3,7 @@
 # Deskbug
 ## Deskbug is a bugtracker application written in C# and .Net 6.
 
-<img src="https://img.shields.io/github/license/marcondesc/deskbug"/> <img src="https://img.shields.io/badge/Tecnology-NET6-blue"/> <img src="https://img.shields.io/badge/database-SqlServer-red"/>
+<img src="https://img.shields.io/github/license/marcondesc/deskbug"/> <img src="https://img.shields.io/badge/tecnology-NET6-blue"/> <img src="https://img.shields.io/badge/database-SqlServer-red"/>
 
 ### Status
 Em construção...
@@ -17,4 +17,4 @@ Em construção...
 - [ ] Cadastro de Severidade
 - [ ] Cadastro de Projetos
 - [ ] Cadastro de Tickets
-
+- [ ] Autenticação e Autorização

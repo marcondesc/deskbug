@@ -3,11 +3,13 @@ using Microsoft.EntityFrameworkCore.Internal;
 using Deskbug.EntityConfigs;
 using Deskbug.Models;
 
-namespace BugTracker.Contexts;
+namespace Deskbug.Contexts;
 
 public class AppDbContext : DbContext
 {
     public DbSet<Category> Categories => Set<Category>();
+    public DbSet<Project> Projects => Set<Project>();
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -18,5 +20,7 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration(new CategoryEntityConfig());
+        builder.ApplyConfiguration(new ProjectEntityConfig());
+        builder.ApplyConfiguration(new UserEntityConfig());
     }
 }
