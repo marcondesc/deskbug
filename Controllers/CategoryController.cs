@@ -45,10 +45,55 @@ public class CategoryController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    public IActionResult Edit(int id)
+    {
+        ViewData["Title"] = "Editar Tarefa";
 
+        var category = _db.Categories.Find(id);
+        if (category is null)
+        {
+            return NotFound();
+        }
+        var viewModel = new FormCategoryViewModel
+        {
+            Name = category.Name,
+            DisplayOrder = category.DisplayOrder,
+            CategoryLevel = category.CategoryLevel,
+            CategoryReference = category.CategoryReference,
+            CreatedDate = category.CreatedDate,
+            CategoryStatus = category.CategoryStatus
+        };
+        return View("Form", viewModel);
+    }
 
+    [HttpPost]
+    public IActionResult Edit(int id, FormCategoryViewModel dados)
+    {
+        var category = _db.Categories.Find(id);
+        if (category is null)
+        {
+            return NotFound();
+        }
+        category.Name = dados.Name;
+        category.DisplayOrder = dados.DisplayOrder;
+        category.CategoryLevel = dados.CategoryLevel;
+        category.CategoryReference = dados.CategoryReference;
+        category.CreatedDate = dados.CreatedDate;
+        category.CategoryStatus = dados.CategoryStatus;
+        _db.SaveChanges();
+        return RedirectToAction(nameof(Index));
+    }
 
-
-
+    public IActionResult Delete(int id)
+    {
+        var category = _db.Categories.Find(id);
+        if (category is null)
+        {
+            return NotFound();
+        }
+        _db.Remove(category);
+        _db.SaveChanges();
+        return RedirectToAction(nameof(Index));
+    }
 
 }
