@@ -1,5 +1,66 @@
+@model ListCategoryViewModel
+
 <div class="row">
     <div class="col text-center">
         <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<!--
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public int DisplayOrder { get; set; }
+    public int CategoryLevel { get; set; }
+    public int CategoryReference { get; set; }
+    public DateTime CreatedDate { get; set; }
+    public int CategoryStatus { get; set; }
+-->
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Ordem</th>
+                    <th scope="col">Nível</th>
+                    <th scope="col">Categoria Pai</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model.Categories)
+                {
+                    <tr>
+                        <th scope="row">@category.Id</th>
+                        <td>@category.Name</td>
+                        <td>@category.DisplayOrder</td>
+                        <td>@category.CategoryLevel</td>
+                        <td>@category.CategoryReference</td>
+                        <td>@category.CreatedDate.ToString("dd/MM/yyyy")</td>
+                        <td>@category.CategoryStatus</td>
+                        <td>
+
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id"
+                            class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id"
+                            onclick="return confirm('Tem certeza que deseja excluir essa categoria?')"
+                            class="btn btn-sm btn-danger"><i class="fa-regular fa-square-minus"></i> Excluir</a>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <a asp-controller="Category" asp-action="Create" class="btn btn-primary">Nova Categoria</a>
     </div>
 </div>

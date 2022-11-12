@@ -26,6 +26,15 @@ public class CategoryEntityConfig : IEntityTypeConfiguration<Category>
             .HasColumnType("int")
             .IsRequired();
 
+        builder.Property(x => x.CategoryLevel)
+            .HasColumnName("category_level")
+            .HasColumnType("int")
+            .IsRequired();
+
+        builder.Property(x => x.CategoryReference)
+            .HasColumnName("category_reference")
+            .HasColumnType("int");
+
         builder.Property(x => x.CreatedDate)
             .HasColumnName("created_date")
             .HasColumnType("DateTime")

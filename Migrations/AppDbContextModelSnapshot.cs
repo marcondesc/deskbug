@@ -31,6 +31,14 @@ namespace Deskbug.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CategoryLevel")
+                        .HasColumnType("int")
+                        .HasColumnName("category_level");
+
+                    b.Property<int>("CategoryReference")
+                        .HasColumnType("int")
+                        .HasColumnName("category_reference");
+
                     b.Property<int>("CategoryStatus")
                         .HasColumnType("int")
                         .HasColumnName("category_status");
@@ -88,6 +96,53 @@ namespace Deskbug.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("project", (string)null);
+                });
+
+            modelBuilder.Entity("Deskbug.Models.User", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("email");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("full_name");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("password");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("token");
+
+                    b.Property<DateTime>("TokenDate")
+                        .HasColumnType("DateTime")
+                        .HasColumnName("token_date");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("user_name");
+
+                    b.Property<int>("UserStatus")
+                        .HasColumnType("int")
+                        .HasColumnName("user_status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("user", (string)null);
                 });
 #pragma warning restore 612, 618
         }

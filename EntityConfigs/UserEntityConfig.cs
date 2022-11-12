@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Deskbug.EntityConfigs;
 
-public class UserEntityConfig
+public class UserEntityConfig : IEntityTypeConfiguration<User>
 {
 
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.ToTable("project");
+        builder.ToTable("user");
 
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id)

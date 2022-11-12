@@ -13,7 +13,8 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
-        builder.UseSqlServer("Server=MCWS\\SQL2019;Database=deskbug;Trusted_Connection=True;");
+        builder.UseSqlServer("Server=MCWS\\SQL2019;Database=deskbug;Trusted_Connection=True;Encrypt=False;");
+        //builder.UseSqlServer("Server=MCWS\\SQL2019;Database=mcws;User Id=mcws;Password=mcws;Encrypt=False;");
     }
 
     // se não for utiliza DataAnnotations
