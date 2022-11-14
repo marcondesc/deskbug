@@ -1,16 +1,14 @@
-using Microsoft.EntityFrameworkCore;
 using Deskbug.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Internal;
 
-namespace Deskbug.EntityConfigs;
+namespace Deskbug.EntutyConfigs;
 
-public class ProjectEntityConfig : IEntityTypeConfiguration<Project>
+public class CompanyEntityConfig : IEntityTypeConfiguration<Company>
 {
-
-    public void Configure(EntityTypeBuilder<Project> builder)
+    public void Configure(EntityTypeBuilder<Company> builder)
     {
-        builder.ToTable("project");
+        builder.ToTable("company");
 
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id)
@@ -31,17 +29,13 @@ public class ProjectEntityConfig : IEntityTypeConfiguration<Project>
             .HasColumnType("nvarchar(MAX)")
             .IsRequired();
 
-        builder.Property(x => x.ProjectColor)
-            .HasColumnName("project_color")
-            .HasColumnType("nvarchar(7)");
-
         builder.Property(x => x.CreatedDate)
             .HasColumnName("created_date")
             .HasColumnType("DateTime")
             .IsRequired();
 
-        builder.Property(x => x.ProjectStatus)
-            .HasColumnName("project_status")
+        builder.Property(x => x.CompanyStatus)
+            .HasColumnName("company_status")
             .HasColumnType("int")
             .IsRequired();
     }

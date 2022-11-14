@@ -11,10 +11,17 @@ Em construção...
 
 ### Features
 
-- [ ] Cadastro de Categorias
-- [ ] Cadastro de Usuários
-- [ ] Cadastro de Prioridade
-- [ ] Cadastro de Severidade
-- [ ] Cadastro de Projetos
-- [ ] Cadastro de Tickets
-- [ ] Autenticação e Autorização
+CRUD's
+- [x] Category
+- [ ] Project
+- [ ] Company
+- [ ] TicketType
+- [ ] Ticket History
+- [ ] TicketAttachment
+- [ ] TicketComment
+- [ ] Ticket
+- [ ] ProjectMembers
+- [ ] Notification
+- [ ] Invite
+- [ ] User
+- [ ] Authentication and Authorization
