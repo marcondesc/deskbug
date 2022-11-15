@@ -14,8 +14,8 @@ Em construção...
 CRUD's
 - [x] Category
 - [x] Project
-- [ ] Company
-- [ ] TicketType
+- [x] Company
+- [x] TicketType
 - [ ] Ticket History
 - [ ] TicketAttachment
 - [ ] TicketComment
