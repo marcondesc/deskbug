@@ -1,0 +1,47 @@
+@model ListSeverityViewModel
+
+<div class="row">
+    <div class="col text-center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var severity in Model.Severities)
+                {
+                    <tr>
+                        <th scope="row">@severity.Id</th>
+                        <td>@severity.Name</td>
+                        <td>@severity.Grade</td>
+@*                         <td>
+
+                            <a asp-controller="Severity" asp-action="Edit" asp-route-id="@severity.Id"
+                            class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                            <a asp-controller="Severity" asp-action="Delete" asp-route-id="@severity.Id"
+                            onclick="return confirm('Are you shure you want to delete this project?')"
+                            class="btn btn-sm btn-danger"><i class="fa-regular fa-square-minus"></i> Excluir</a>
+                        </td> *@
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* <div class="row">
+    <div class="col">
+        <a asp-controller="Severity" asp-action="Create" class="btn btn-primary">New Severity</a>
+    </div>
+</div> *@

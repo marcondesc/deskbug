@@ -1,0 +1,54 @@
+@model ListCompanyViewModel
+
+<div class="row">
+    <div class="col text-center">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Short Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">CreatedDate</th>
+                    <th scope="col">CompanyStatus</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var company in Model.Companies)
+                {
+                    <tr>
+                        <th scope="row">@company.Id</th>
+                        <td>@company.Name</td>
+                        <td>@company.ShortName</td>
+                        <td>@company.Description</td>
+                        <td>@company.CreatedDate.ToString("dd/MM/yyyy")</td>
+                        <td>@company.CompanyStatus</td>
+                        <td>
+
+                            <a asp-controller="Company" asp-action="Edit" asp-route-id="@company.Id"
+                            class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                            <a asp-controller="Company" asp-action="Delete" asp-route-id="@company.Id"
+                            onclick="return confirm('Are you shure you want to delete this Company?')"
+                            class="btn btn-sm btn-danger"><i class="fa-regular fa-square-minus"></i> Excluir</a>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <a asp-controller="Company" asp-action="Create" class="btn btn-primary">New Company</a>
+    </div>
+</div>

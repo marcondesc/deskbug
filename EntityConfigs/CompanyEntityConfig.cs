@@ -2,7 +2,7 @@ using Deskbug.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Deskbug.EntutyConfigs;
+namespace Deskbug.EntityConfigs;
 
 public class CompanyEntityConfig : IEntityTypeConfiguration<Company>
 {
