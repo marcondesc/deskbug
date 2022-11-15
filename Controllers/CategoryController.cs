@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Data.Common;
 using Deskbug.Contexts;
 using Deskbug.Models;
 using Deskbug.ViewModels;

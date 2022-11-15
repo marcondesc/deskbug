@@ -13,7 +13,7 @@ Em construção...
 
 CRUD's
 - [x] Category
-- [ ] Project
+- [x] Project
 - [ ] Company
 - [ ] TicketType
 - [ ] Ticket History
